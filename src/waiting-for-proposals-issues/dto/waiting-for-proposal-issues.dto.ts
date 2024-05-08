@@ -33,6 +33,4 @@ export class WaitingForProposalIssuesDisplayModel {
 
   @ApiProperty({ example: 0 })
   currentGoalValue: number;
-
-  constructor() {}
 }

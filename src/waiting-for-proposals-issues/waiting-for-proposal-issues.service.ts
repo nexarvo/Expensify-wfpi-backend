@@ -9,9 +9,6 @@
   
   @Injectable()
   export class WaitingForProposalIssuesService {
-    constructor(
-    ) {
-    }
   
     /**
      * Get all client goals
