@@ -32,6 +32,9 @@ jobs:
         env:
           CI: true
 
+      - name: Install Prettier
+        run: npm install prettier --save-dev
+
       - name: Verify there's no Prettier diff
         run: |
           npm run prettier -- --loglevel silent
