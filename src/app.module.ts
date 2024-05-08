@@ -1,10 +1,7 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { WaitingForProposalIssuesModule } from './waiting-for-proposals-issues/waiting-for-proposals-issues.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [WaitingForProposalIssuesModule],
 })
 export class AppModule {}
