@@ -1,31 +1,11 @@
 name: Lint code
 
 on:
-  push:
-    branches-ignore: [staging, production]
-    paths:
-      - '**.js'
-      - '**.ts'
-      - '**.tsx'
-      - '**.json'
-      - '**.mjs'
-      - '**.cjs'
-      - 'config/.editorconfig'
-      - '.watchmanconfig'
-      - '.imgbotconfig'
+  workflow_call:
   pull_request:
     types: [opened, synchronize]
     branches-ignore: [staging, production]
-    paths:
-      - '**.js'
-      - '**.ts'
-      - '**.tsx'
-      - '**.json'
-      - '**.mjs'
-      - '**.cjs'
-      - 'config/.editorconfig'
-      - '.watchmanconfig'
-      - '.imgbotconfig'
+    paths: ['**.js', '**.ts', '**.tsx', '**.json', '**.mjs', '**.cjs', 'config/.editorconfig', '.watchmanconfig', '.imgbotconfig']
 
 concurrency:
   group: "${{ github.ref }}-lint"
@@ -43,6 +23,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 20
+
+      - name: Install ESLint
+        run: npm install eslint --save-dev
 
       - name: Lint JavaScript and Typescript with ESLint
         run: npm run lint
