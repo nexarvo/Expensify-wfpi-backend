@@ -5,6 +5,7 @@ import {
 Controller,
 Get,
 HttpCode,
+Query,
 } from '@nestjs/common';
 import {
 ApiOperation,
@@ -24,6 +25,8 @@ PaginationSkip,
 PaginationTake,
 } from '../utils/constants/api-query-constant';
 import { BaseController } from '../core/base-controller';
+import { ListApiQueryDto } from '../core/dto/api-query-dto';
+import { ListApiQueryPipe } from '../core/pipes/list-api-query-pipe';
   
   @ApiTags('WaitingForProposalIssues')
   @Controller('waitingForProposalIssues/')
@@ -44,13 +47,14 @@ import { BaseController } from '../core/base-controller';
     @HttpCode(200)
     @Get('/goals')
     async getClientGoals(
+      @Query(ListApiQueryPipe) query: ListApiQueryDto,
     ): Promise<
       | PagedCollection<WaitingForProposalIssuesDisplayModel>
       | WrappedCollection<WaitingForProposalIssuesDisplayModel>
       | BaseError
     > {
       return this.getResult(
-        await this._waitingForProposalIssuesService.getWaitingForProposalIssues(),
+        await this._waitingForProposalIssuesService.getWaitingForProposalIssues(query),
       );
     }
   }
