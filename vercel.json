@@ -2,9 +2,8 @@
     "version": 2,
     "builds": [
       {
-        "src": "public/main.js",
+        "src": "src/main.ts",
         "use": "@vercel/node"
       }
     ]
-  }
-  
+}  
