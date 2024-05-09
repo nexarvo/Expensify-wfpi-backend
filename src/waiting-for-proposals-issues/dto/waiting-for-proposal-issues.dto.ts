@@ -8,29 +8,25 @@ export class WaitingForProposalIssuesDisplayModel {
   title: string;
 
   @ApiProperty({ example: 'string' })
-  summary: string;
+  state: string;
 
   @ApiProperty({ example: 'string' })
-  year: string;
+  created_at: string;
 
   @ApiProperty({ example: 'string' })
-  graphType: string;
+  url: string;
 
-  @ApiProperty({ example: 'string' })
-  mode: string;
-
-  @ApiProperty({ example: 'string' })
-  month: string;
-
-  @ApiProperty({ example: 'string' })
-  goalValue: string;
-
-  @ApiProperty({ example: 'string' })
-  type?: string;
-
-  @ApiProperty({ example: 1 })
-  displayOrder: number;
-
-  @ApiProperty({ example: 0 })
-  currentGoalValue: number;
+  constructor(
+    id: string,
+    title: string,
+    state: string,
+    created_at: string,
+    url: string,
+  ) {
+    this.id = id;
+    this.title = title;
+    this.state = state;
+    this.created_at = created_at;
+    this.url = url;
+  }
 }
