@@ -51,7 +51,7 @@ export class WaitingForProposalIssuesService {
                     }
                 }
 
-                const recordsPerPage = 25;
+                const recordsPerPage = 30;
                 const totalPages = this.getTotalNumberOfPagesFromResponse(response);
 
                 const displayModel = new PagedCollection<WaitingForProposalIssuesDisplayModel>(
