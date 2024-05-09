@@ -4,7 +4,7 @@ export const PaginationSkip = {
     example: 0,
     description: 'Records to skip',
 };
-  
+
 export const PaginationTake = {
     name: 'take',
     required: false,

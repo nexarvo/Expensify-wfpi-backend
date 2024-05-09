@@ -1,10 +1,10 @@
-import { ApiProperty } from '@nestjs/swagger';
+import {ApiProperty} from '@nestjs/swagger';
 
 export class BoolResult {
-  @ApiProperty({ example: true })
-  value: boolean;
+    @ApiProperty({example: true})
+    value: boolean;
 
-  constructor(value: boolean) {
-    this.value = value;
-  }
+    constructor(value: boolean) {
+        this.value = value;
+    }
 }

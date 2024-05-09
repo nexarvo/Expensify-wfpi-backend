@@ -1,4 +1,4 @@
-import { ApiPagedCollectionResponse } from './api-paged-collection-response';
-import { PagedCollection } from './paged-collection';
+import {ApiPagedCollectionResponse} from './api-paged-collection-response';
+import {PagedCollection} from './paged-collection';
 
-export { ApiPagedCollectionResponse, PagedCollection };
+export {ApiPagedCollectionResponse, PagedCollection};
