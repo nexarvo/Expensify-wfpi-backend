@@ -29,8 +29,10 @@ export class WaitingForProposalIssuesService {
             const repo = process.env.REPOSITORY;
             const searchText = 'Please re-state the problem that we are trying to solve in this issue';
 
-            const url = `${process.env.GITHUB_API_BASE_URL}/repos/${owner}/${repo}/issues?state=open&labels=External&$page=${page}`;
+            const url = `${process.env.GITHUB_API_BASE_URL}/repos/${owner}/${repo}/issues?state=open&labels=External&page=${page}`;
             const headers = {Authorization: `token ${process.env.TOKEN}`};
+
+            console.log(url)
 
             const response = await this._axiosService.get(url, headers);
             if (response.status === HttpStatus.OK) {
