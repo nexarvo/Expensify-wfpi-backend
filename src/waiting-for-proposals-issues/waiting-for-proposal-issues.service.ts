@@ -51,11 +51,15 @@ export class WaitingForProposalIssuesService {
                     }
                 }
 
-                const recordsToSkip = 0;
                 const recordsPerPage = 25;
                 const totalPages = this.getTotalNumberOfPagesFromResponse(response);
 
-                const displayModel = new PagedCollection<WaitingForProposalIssuesDisplayModel>(recordsToSkip, recordsPerPage, totalPages, shortListedIssues);
+                const displayModel = new PagedCollection<WaitingForProposalIssuesDisplayModel>(
+                    query.skip,
+                    recordsPerPage,
+                    totalPages,
+                    shortListedIssues,
+                );
 
                 return displayModel;
             }
