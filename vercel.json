@@ -2,7 +2,7 @@
     "version": 2,
     "functions": {
         "api/main.ts": {
-            "maxDuration": 60
+            "maxDuration": 180
         }
     },
     "routes": [
