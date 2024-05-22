@@ -3,12 +3,14 @@
     "builds": [
         {
             "src": "src/main.ts",
-            "use": "@vercel/node",
-            "config": {
-                "maxDuration": 180
-            }
+            "use": "@vercel/node"
         }
     ],
+    "functions": {
+        "api/**/*.ts": {
+          "maxDuration": 60
+        }
+    },
     "routes": [
         {
             "src": "/(.*)",
