@@ -7,10 +7,10 @@
         }
     ],
     "functions": {
-        "api/**/*.ts": {
+        "src/main.ts": {
           "maxDuration": 60
         }
-    },
+      },
     "routes": [
         {
             "src": "/(.*)",
