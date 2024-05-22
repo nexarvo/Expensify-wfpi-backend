@@ -9,6 +9,7 @@ import {PaginationSkip, PaginationTake} from '../utils/constants/api-query-const
 import {BaseController} from '../core/base-controller';
 import {ListApiQueryDto} from '../core/dto/api-query-dto';
 import {ListApiQueryPipe} from '../core/pipes/list-api-query-pipe';
+import { ApiWrappedCollectionResponse } from '../core/dto/api-wrapped-collection-response';
 
 @ApiTags('WaitingForProposalIssues')
 @Controller('')
@@ -21,16 +22,27 @@ export class WaitingForProposalIssuesController extends BaseController {
         super();
     }
 
-    @ApiOperation({summary: 'List all the issue which do not any proposal.'})
+    @ApiOperation({summary: 'List all the issue which do not any proposal(Paginated).'})
     @ApiPagedCollectionResponse(WaitingForProposalIssuesDisplayModel)
     @ApiExtraModels(WaitingForProposalIssuesDisplayModel)
     @ApiQuery(PaginationSkip)
     @ApiQuery(PaginationTake)
     @HttpCode(200)
     @Get('/waitingForProposalIssues')
-    async getClientGoals(
+    async getWaitingForProposalIssuesPaginated(
         @Query(ListApiQueryPipe) query: ListApiQueryDto,
     ): Promise<PagedCollection<WaitingForProposalIssuesDisplayModel> | WrappedCollection<WaitingForProposalIssuesDisplayModel> | BaseError> {
         return this.getResult(await this._waitingForProposalIssuesService.getWaitingForProposalIssues(query));
+    }
+
+    @ApiOperation({ summary: 'Lists all issues which do not have any proposals.' })
+    @ApiWrappedCollectionResponse(WaitingForProposalIssuesDisplayModel)
+    @ApiExtraModels(WaitingForProposalIssuesDisplayModel)
+    @HttpCode(200)
+    @Get('waitingForProposalIssues/list')
+    async getWaitingForProposalIssues(): Promise<WrappedCollection<WaitingForProposalIssuesDisplayModel> | BaseError> {
+      return this.getResult(
+        await this._waitingForProposalIssuesService.getWaitingForProposalIssuesList(),
+      );
     }
 }
