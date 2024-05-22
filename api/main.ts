@@ -1,7 +1,7 @@
 import {NestFactory} from '@nestjs/core';
-import {AppModule} from './app.module';
+import {AppModule} from '../src/app.module';
 import {ValidationPipe} from '@nestjs/common';
-import {swaggerLoader} from './utils/loaders/swaggerLoader';
+import {swaggerLoader} from '../src/utils/loaders/swaggerLoader';
 import * as dotenv from 'dotenv';
 
 async function bootstrap() {
